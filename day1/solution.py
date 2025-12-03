@@ -43,12 +43,12 @@ def part2_optimized(input_file):
             clicks = int(line[1:])
 
             if direction == "L":
-                passes = (position - 1) // 100 - (position - clicks - 1) // 100
+                passes = (position - 1) // 100 - ((position - clicks - 1) // 100)
                 count += passes
                 position = (position - clicks) % 100
 
             elif direction == "R":
-                passes = (position + clicks) // 100 - (position) // 100
+                passes = (position + clicks) // 100
                 count += passes
                 position = (position + clicks) % 100
     return count
@@ -56,7 +56,7 @@ def part2_optimized(input_file):
             
 
 if __name__ == "__main__":
-    input_file = "day1/inputs/demo_input"
+    input_file = "day1/inputs/input"
     print(f"Part 1: {part1(input_file)}")
     print(f"Part 2 Naive: {part2_naive(input_file)}")
     print(f"Part 2 Optimized: {part2_optimized(input_file)}")
